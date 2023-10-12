@@ -1,9 +1,66 @@
 MDScreen:
     name: 'home'
-    MDLabel:
-        text: 'Hello World!'
-        font_style: 'Caption'
-        halign: 'center'
-        theme_text_color: 'Custom'
-        text_color: 236/255, 98/255, 81/255, 1
-        pos_hint: {'center_y': .38}
+    BoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Fisioterapeuta'
+            md_bg_color: rgba(52, 0, 231, 255)
+            left_action_items: [["account-circle"]]
+            right_action_items: [["logout", lambda x: app.show_dialog('Cerrando Sesion', "Vuelva Pronto", 'main', 'right'), "20dp"]]
+            elevation: 2
+            MDLabel:
+                text: 'Pepito Perez'
+                color: rgba(255, 255, 255, 255)
+                halign: 'left'
+                font_name: 'Poppins-Medium.ttf'
+        MDFloatLayout:
+            MDLabel:
+                text: "Fecha:"
+                pos_hint:{'center_x': .52, 'center_y': .93}
+                font_name: 'Poppins-SemiBold.ttf'
+                color: rgba (34, 34, 34, 255)
+            MDLabel:
+                text: "10/10/2023"
+                pos_hint:{'center_x': .7, 'center_y': .93}
+                font_name: 'Poppins-Medium.ttf'
+                color: rgba (127, 127, 127, 255)
+            MDBoxLayout:
+                pos_hint:{'center_x': .5, 'center_y': .47}
+                size_hint: 0.9, 0.8
+                md_bg_color: rgba(81, 95, 232, 255)
+                radius: [5]
+            MDRectangleFlatIconButton:
+                icon: "file-document-outline"
+                text: "Guias Terapias"
+                md_bg_color: rgba (0, 191, 255, 255)
+                text_color: "white"
+                icon_color: rgba (34, 34, 34, 255)
+                pos_hint:{'center_x': .5, 'center_y': .7}
+                size_hint: 0.8, 0.01
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'guides'
+            MDRectangleFlatIconButton:
+                icon: "gymnastics"
+                text: "Terapia"
+                line_color: rgba (0, 0, 139, 255)
+                md_bg_color: rgba (0, 0, 139, 255)
+                text_color: "white"
+                icon_color: rgba (34, 34, 34, 255)
+                pos_hint:{'center_x': .5, 'center_y': .5}
+                size_hint: 0.8, 0.01
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'therapy'
+            MDRectangleFlatIconButton:
+                icon: "check-circle"
+                text: "Resultados"
+                line_color: rgba (128, 0, 128, 255)
+                md_bg_color: rgba (128, 0, 128, 255)
+                text_color: "white"
+                icon_color: rgba (34, 34, 34, 255)
+                pos_hint:{'center_x': .5, 'center_y': .3}
+                size_hint: 0.8, 0.01
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'results'
